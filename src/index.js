@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, ipcMain } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
 
 if (require('electron-squirrel-startup')) {
@@ -14,13 +14,17 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
+      
     },
+    autoHideMenuBar: true
   });
 
-  
+  mainWindow.maximize();
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
+
+  nativeTheme.themeSource = 'dark'
 };
 
 app.on('ready', createWindow);

@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html color-mode="user">
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <title>Generate Tag</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css">
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
-    <h3>File Upload in Electron</h3>
-    <button id="upload">Upload File</button>
-    <script src="renderer.js"></script>
+    <main>
+      <header>
+        <h1>File Upload in Electron</h1>
+     
 
+      <!-- <input type="checkbox"> Usa Espaco<br> -->
+      <div class="upload-btn-wrapper">
+        <button class="btn" id="upload">Upload a file</button>
+      </div>
+      </header>
+      <div id="cards" style="
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+"></div>
+    </main>
+    <script src="renderer.js"></script>
   </body>
 </html>
