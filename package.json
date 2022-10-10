@@ -50,7 +50,9 @@
             "repository": {
               "owner": "AlvaroAugustoZago",
               "name": "generate-tag"
-            }
+            },
+            "prerelease": false,
+            "draft": true
           }
         }
       ]
