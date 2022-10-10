@@ -49,7 +49,7 @@
           "config": {
             "repository": {
               "owner": "AlvaroAugustoZago",
-              "name": "generate-tag"
+              "name": "generate-tags"
             },
             "prerelease": false,
             "draft": true
