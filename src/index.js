@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, ipcMain } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain, nativeTheme } = require('electron');
 const path = require('path');
 
 if (require('electron-squirrel-startup')) {
@@ -14,13 +14,17 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
+      
     },
+    autoHideMenuBar: true
   });
 
-  
+  mainWindow.maximize();
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
+
+  nativeTheme.themeSource = 'dark'
 };
 
 app.on('ready', createWindow);
@@ -48,7 +52,7 @@ ipcMain.on('file-request', (event) => {
       filters: [
         {
           name: 'Text Files',
-          extensions: ['txt', 'docx']
+          extensions: ['xml']
         },],
       properties: ['openFile']
     }).then(file => {
@@ -69,11 +73,11 @@ ipcMain.on('file-request', (event) => {
       filters: [
         {
           name: 'Text Files',
-          extensions: ['txt', 'docx']
+          extensions: ['xml']
         },],
       properties: ['openFile', 'openDirectory']
     }).then(file => {
-      console.log(file.canceled);
+      console.log(file);
       if (!file.canceled) {
         const filepath = file.filePaths[0].toString();
         console.log(filepath);

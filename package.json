@@ -1,7 +1,7 @@
 {
   "name": "generate-tag",
   "productName": "generate-tag",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
@@ -59,7 +59,8 @@
     }
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.65",
