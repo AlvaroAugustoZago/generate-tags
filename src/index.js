@@ -48,7 +48,7 @@ ipcMain.on('file-request', (event) => {
       filters: [
         {
           name: 'Text Files',
-          extensions: ['txt', 'docx']
+          extensions: ['xml']
         },],
       properties: ['openFile']
     }).then(file => {
@@ -69,11 +69,11 @@ ipcMain.on('file-request', (event) => {
       filters: [
         {
           name: 'Text Files',
-          extensions: ['txt', 'docx']
+          extensions: ['xml']
         },],
       properties: ['openFile', 'openDirectory']
     }).then(file => {
-      console.log(file.canceled);
+      console.log(file);
       if (!file.canceled) {
         const filepath = file.filePaths[0].toString();
         console.log(filepath);
