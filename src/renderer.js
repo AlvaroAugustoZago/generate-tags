@@ -5,12 +5,10 @@ const parser = new xml2js.Parser({ attrkey: "ATTR" });
 
 var uploadFile = document.getElementById('upload');
 
-//upon clicking upload file, request the file from the main process
 uploadFile.addEventListener('click', () => {
     ipcRenderer.send('file-request');
 });
 
-//upon receiving a file, process accordingly
 ipcRenderer.on('file', (event, file) => {
     console.log('obtained file from main process: ' + file);
     let xml_string = fs.readFileSync(file, "utf8");
@@ -35,8 +33,6 @@ ipcRenderer.on('file', (event, file) => {
                 nLote = infProd.split(`Val:`)[0].trim().split(`Lote:`)[1]
             }
 
-            // console.log(nLote)
-            // console.log(toHex(tag)) 
             createCard({ produto, validade, lote: nLote })
 
         })
@@ -45,14 +41,8 @@ ipcRenderer.on('file', (event, file) => {
 
 });
 
-let totalItens = 0
 function createCard({ produto, validade, lote }) {
     const cardsDiv = document.getElementById("cards");
-    totalItens++;
-    if (totalItens>1) {
-        // cardsDiv.innerHTML += '<br>';
-        totalItens=0
-    }
     cardsDiv.innerHTML += `
     <section class="item">
         <aside>
