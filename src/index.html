@@ -9,14 +9,27 @@
   <body>
     <main>
       <header>
-        <h1>File Upload in Electron</h1>
-
-
+        <h1>Gerador de Tag</h1>
         <!-- <input type="checkbox"> Usa Espaco<br> -->
         <div class="upload-btn-wrapper">
-          <button class="btn" id="upload">Upload a file</button>
+          <button class="btn" id="upload">Envie uma nota</button>
         </div>
       </header>
+      <template>
+        <section id="produto" class="item">
+          <aside>
+            <p>Produto</p>
+            <h5 id="nome"></h5>
+            <p>Lote</p>
+            <h5 id="lote"></h5>
+            <p>Validade</p>
+            <h5 id="validade"></h5>
+            <div class="upload-btn-wrapper">
+              <button class="btn" id="gerarTag">Gerar Tag</button>
+            </div>
+          </aside>
+        </section>
+      </template>
       <div id="cards" style="
         display: flex;
         flex-wrap: wrap;

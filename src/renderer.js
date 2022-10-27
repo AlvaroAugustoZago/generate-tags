@@ -41,20 +41,25 @@ ipcRenderer.on('file', (event, file) => {
 
 });
 
-function createCard({ produto, validade, lote }) {
-    const cardsDiv = document.getElementById("cards");
-    cardsDiv.innerHTML += `
-    <section class="item">
-        <aside>
-          <p>Produto</p>
-          <h5>${produto}</h5>
-          <p>Lote</p>
-          <h5>${lote}</h5>
-          <p>Validade</p>
-          <h5>${validade}</h5>
-        </aside>
-        </section>
-    `
+
+const temp = document.getElementsByTagName("template")[0];
+const produto = temp.content.querySelector("#produto");
+
+
+const cardsDiv = document.getElementById("cards");
+
+function createCard({ produto: nome, validade, lote }) {
+
+    const a = document.importNode(produto, true)
+    const nomeProduto = a.querySelector("#nome");
+    const loteProduto = a.querySelector("#lote");
+    const validadeProduto = a.querySelector("#validade");
+
+    nomeProduto.textContent += nome;
+    loteProduto.textContent += lote;
+    validadeProduto.textContent += validade;
+
+    cardsDiv.appendChild(a)
 }
 
 function toHex(str) {
